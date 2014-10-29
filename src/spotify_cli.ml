@@ -112,6 +112,15 @@ let previous_cmd =
   Term.(pure Commands.previous $ pure ()),
   Term.info "previous" ~doc ~man
 
+let mute_cmd =
+  let doc = "enable mute" in
+  let man = [
+    `S "DESCRIPTION";
+    `P "Set output volume to 0.";
+  ] @ help_secs in
+  Term.(pure Commands.mute $ pure ()),
+  Term.info "mute" ~doc ~man
+
 let default_cmd =
   let doc = "Spotify CLI" in
   let man = help_secs in
@@ -127,6 +136,7 @@ let cmds = [
   play_pause_cmd;
   play_track_cmd;
   previous_cmd;
+	mute_cmd;
 ]
 
 let () =

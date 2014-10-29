@@ -49,6 +49,10 @@ let previous () =
   with_check_return_ok
     (fun () -> ["previous"; "track"] |> script |> run)
 
+let mute () =
+  with_check_return_ok
+	(fun () -> ["set"; "sound"; "volume"; "to"; "0"] |> script |> run)
+
 let play_album album_href =
   with_check_return_ok
     (fun () -> ["play"; "track"; quote album_href] |> script |> run)
