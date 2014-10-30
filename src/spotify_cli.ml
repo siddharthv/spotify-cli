@@ -121,6 +121,15 @@ let mute_cmd =
   Term.(pure Commands.mute $ pure ()),
   Term.info "mute" ~doc ~man
 
+let start_cmd =
+  let doc = "start spotify" in
+  let man = [
+    `S "DESCRIPTION";
+    `P "Launch Spotify";
+  ] @ help_secs in
+  Term.(pure Commands.start $ pure ()),
+  Term.info "start" ~doc ~man
+
 let default_cmd =
   let doc = "Spotify CLI" in
   let man = help_secs in
@@ -137,6 +146,7 @@ let cmds = [
   play_track_cmd;
   previous_cmd;
 	mute_cmd;
+	start_cmd;
 ]
 
 let () =

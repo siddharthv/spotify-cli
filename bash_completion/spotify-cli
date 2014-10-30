@@ -4,7 +4,7 @@ _spotify-cli()
     COMPREPLY=()
     cur="${COMP_WORDS[COMP_CWORD]}"
     prev="${COMP_WORDS[COMP_CWORD-1]}"
-    opts="help next now-playing play-album play-artist play-pause play-track previous mute"
+    opts="help next now-playing play-album play-artist play-pause play-track previous mute start"
 
     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
     return 0

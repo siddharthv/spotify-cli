@@ -10,6 +10,8 @@ let previous () = Lwt_main.run (Backend.previous ())
 
 let mute () = Lwt_main.run (Backend.mute ())
 
+let start () = Lwt_main.run (Backend.start ())
+
 let play_album album_name =
   Lwt_main.run (
     lwt results = Spotify_search.search_albums album_name in

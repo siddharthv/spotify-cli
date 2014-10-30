@@ -25,6 +25,8 @@ let previous () = with_proxy_return_ok Spotify.previous
 
 let mute () = failwith "unimplemented yet"
 
+let start () = failwith "unimplemented yet"
+
 let play_album album_href =
   with_proxy_return_ok (fun proxy -> Spotify.open_uri proxy album_href)
 

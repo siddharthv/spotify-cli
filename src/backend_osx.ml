@@ -37,6 +37,10 @@ let with_check_return_ok f =
   is_running ()
   >>= (function | true -> f () >>= ok | false -> return Spotify_not_found)
 
+let with_check_return_not_ok f =
+  is_running ()
+  >>= (function | false -> f () >>= ok | true -> return Spotify_not_found)
+
 let next () =
   with_check_return_ok
     (fun () -> ["next"; "track"] |> script |> run)
@@ -51,7 +55,11 @@ let previous () =
 
 let mute () =
   with_check_return_ok
-	(fun () -> ["set"; "sound"; "volume"; "to"; "0"] |> script |> run)
+    (fun () -> ["set"; "sound"; "volume"; "to"; "0"] |> script |> run)
+
+let start () = 
+  with_check_return_not_ok
+    (fun () -> ["play"] |> script |> run)
 
 let play_album album_href =
   with_check_return_ok
